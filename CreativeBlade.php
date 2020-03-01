@@ -51,12 +51,12 @@ class CreativeBlade
 
     }
 
-    function generatePreferenceFileTimestamp($file)
+    private function generatePreferenceFileTimestamp($file)
     {
         return filemtime($file);
     }
 
-    function getBladeFileTimestamp()
+    private function getBladeFileTimestamp()
     {
         if ($this->getPreferencesFileContent() !== '') {
             $content = $this->getPreferencesFileContent();
@@ -68,7 +68,7 @@ class CreativeBlade
         return $content;
     }
 
-    function getCompiledFileTimestamp()
+    private function getCompiledFileTimestamp()
     {
         if ($this->getPreferencesFileContent() !== '') {
             $content = $this->getPreferencesFileContent();
@@ -80,7 +80,7 @@ class CreativeBlade
         return $content;
     }
 
-    function getPreferencesFileContent()
+    private function getPreferencesFileContent()
     {
         if (is_file($this->preference_file)) {
             $fp = fopen($this->preference_file, 'r');
