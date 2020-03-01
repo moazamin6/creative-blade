@@ -1,0 +1,20 @@
+{
+  "name": "moazamin6/creative-blade",
+  "description": "The standalone version of Laravel's Blade templating engine for use outside of Laravel.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Moaz Amin",
+      "email": "moazamin6@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CreativeBlade\\": ""
+    }
+  },
+  "require": {
+    "illuminate/view": "^6.17.1"
+  }
+}
