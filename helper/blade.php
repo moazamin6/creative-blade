@@ -1,18 +1,19 @@
-<?php 
+<?php
 
-use Coolpraz\PhpBlade\PhpBlade;
+
+use CreativeBlade\CreativeBlade\CreativeBlade;
 
 if (! function_exists('view')) {
     /**
      * Get the evaluated view contents for the given view.
      *
-     * @param  PhpBlade $instance
+     * @param  CreativeBlade $instance
      * @param  string   $view
      * @param  array    $data
      * @param  array    $mergeData
-     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
+     * @return \CreativeBlade\View\View|\Illuminate\Contracts\View\Factory
      */
-    function view(PhpBlade $instance, $view = null, $data = [], $mergeData = [])
+    function view(CreativeBlade $instance, $view = null, $data = [], $mergeData = [])
     {
         $factory = $instance->view();
         if (func_num_args() === 1) {

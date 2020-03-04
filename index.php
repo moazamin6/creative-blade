@@ -1,12 +1,11 @@
 <?php
+require 'vendor/autoload.php';
 
-require __DIR__ . '/vendor/autoload.php';
+use CreativeBlade\CreativeBlade;
 
-use CreativeBlade\PhpBlade\PhpBlade;
+$views = __DIR__ . '/demo/views';
+$cache = __DIR__ . '/demo/cache';
 
-$views = __DIR__ . '/views';
-$cache = __DIR__ . '/cache';
+$blade = new CreativeBlade($views, $cache);
 
-$blade = new PhpBlade($views, $cache);
-
-echo $blade->view()->make('test', ['name' => 'Moaz Amin']);
+echo $blade->view()->make('demo', ['message' => 'This is Creative Blade']);

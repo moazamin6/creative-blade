@@ -1,7 +1,7 @@
-PHP Blade Template Engine
+Creative PHP Blade Template Engine
 =====
 
-The standalone version of latest [Laravel's Blade templating engine](http://laravel.com/docs/5.4/blade) for use outside of Laravel.
+Full compatible to every php application standalone laravel's blade modify on illuminate/view v6.10.0
 
 Installation
 ------------
@@ -9,7 +9,7 @@ Installation
 Install using composer:
 
 ```bash
-composer require coolpraz/php-blade
+composer require moazamin6/creative-blade
 ```
 
 Usage
@@ -18,16 +18,23 @@ Usage
 Create a Blade instance by passing it the folder(s) where your view files are located, and a cache folder. Render a template by calling the `make` method. More information about the Blade templating engine can be found on http://laravel.com/docs/5.4/blade.
 
 ```php
-require __DIR__ . '/vendor/autoload.php';
+require 'vendor/autoload.php';
 
-use Coolpraz\PhpBlade\PhpBlade;
+use CreativeBlade\CreativeBlade;
 
 $views = __DIR__ . '/views';
 $cache = __DIR__ . '/cache';
 
-$blade = new PhpBlade($views, $cache);
+$blade = new CreativeBlade($views, $cache);
 
-echo $blade->view()->make('meta', ['name' => 'John Doe']);
+echo $blade->view()->make('demo', ['message' => 'This is Creative Blade']);
+```
+In every other standalone blade template package there is a problem that you can not use $this keyword to access your native application features for example if you want to implement blade template in your existing codeigniter application in views files you access your sessions like 
+`$this->session` if you convert your views to blade then your application will crash in this scenario so I modify actual `illuminate/view` package of laravel to solve this problem and I also use existing standalone package `coolpraz/php-blade` so here you can send you data object that you want to access in view like this
+I will use codeigniter default instance 
+```php
+$ci = &get_instance();
+$blade = new CreativeBlade($views, $cache,$ci);
 ```
 
 Now you can easily create a directive by calling the ``compiler()`` function
