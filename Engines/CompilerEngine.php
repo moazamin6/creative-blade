@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\View\Engines;
+namespace CreativeBlade\View\Engines;
 
 use ErrorException;
-use Illuminate\View\Compilers\CompilerInterface;
+use CreativeBlade\View\Compilers\CompilerInterface;
 use Throwable;
 
 class CompilerEngine extends PhpEngine
@@ -11,7 +11,7 @@ class CompilerEngine extends PhpEngine
     /**
      * The Blade compiler instance.
      *
-     * @var \Illuminate\View\Compilers\CompilerInterface
+     * @var \CreativeBlade\View\Compilers\CompilerInterface
      */
     protected $compiler;
 
@@ -25,19 +25,25 @@ class CompilerEngine extends PhpEngine
     /**
      * Create a new Blade view engine instance.
      *
-     * @param  \Illuminate\View\Compilers\CompilerInterface  $compiler
-     * @return void
+     * @param \CreativeBlade\View\Compilers\CompilerInterface $compiler
+     * @param $extra
      */
-    public function __construct(CompilerInterface $compiler)
+    public function __construct(CompilerInterface $compiler, $extra)
     {
+        if (count((array)$extra)) {
+            $vars = get_object_vars($extra);
+            foreach ($vars as $var => $value) {
+                $this->$var = $value;
+            }
+        }
         $this->compiler = $compiler;
     }
 
     /**
      * Get the evaluated contents of the view.
      *
-     * @param  string  $path
-     * @param  array  $data
+     * @param string $path
+     * @param array $data
      * @return string
      */
     public function get($path, array $data = [])
@@ -64,8 +70,8 @@ class CompilerEngine extends PhpEngine
     /**
      * Handle a view exception.
      *
-     * @param  \Throwable  $e
-     * @param  int  $obLevel
+     * @param \Throwable $e
+     * @param int $obLevel
      * @return void
      *
      * @throws \Throwable
@@ -80,18 +86,18 @@ class CompilerEngine extends PhpEngine
     /**
      * Get the exception message for an exception.
      *
-     * @param  \Throwable  $e
+     * @param \Throwable $e
      * @return string
      */
     protected function getMessage(Throwable $e)
     {
-        return $e->getMessage().' (View: '.realpath(last($this->lastCompiled)).')';
+        return $e->getMessage() . ' (View: ' . realpath(last($this->lastCompiled)) . ')';
     }
 
     /**
      * Get the compiler implementation.
      *
-     * @return \Illuminate\View\Compilers\CompilerInterface
+     * @return \CreativeBlade\View\Compilers\CompilerInterface
      */
     public function getCompiler()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Middleware;
+namespace CreativeBlade\View\Middleware;
 
 use Closure;
 use Illuminate\Contracts\View\Factory as ViewFactory;

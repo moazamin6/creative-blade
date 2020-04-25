@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View;
+namespace CreativeBlade\View;
 
 class AnonymousComponent extends Component
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View;
+namespace CreativeBlade\View;
 
 use Closure;
 use Illuminate\Container\Container;
@@ -42,21 +42,21 @@ abstract class Component
     /**
      * The component attributes.
      *
-     * @var \Illuminate\View\ComponentAttributeBag
+     * @var \CreativeBlade\View\ComponentAttributeBag
      */
     public $attributes;
 
     /**
      * Get the view / view contents that represent the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return \CreativeBlade\View\View|string
      */
     abstract public function render();
 
     /**
      * Resolve the Blade view or view file that should be used when rendering the component.
      *
-     * @return \Illuminate\View\View|string
+     * @return \CreativeBlade\View\View|string
      */
     public function resolveView()
     {

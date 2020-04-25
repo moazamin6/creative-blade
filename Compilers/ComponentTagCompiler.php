@@ -1,12 +1,12 @@
 <?php
 
-namespace Illuminate\View\Compilers;
+namespace CreativeBlade\View\Compilers;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Support\Str;
-use Illuminate\View\AnonymousComponent;
+use CreativeBlade\View\AnonymousComponent;
 use InvalidArgumentException;
 use ReflectionClass;
 
@@ -392,7 +392,7 @@ class ComponentTagCompiler
         return collect($attributes)
                 ->map(function (string $value, string $attribute) use ($escapeBound) {
                     return $escapeBound && isset($this->boundAttributes[$attribute]) && $value !== 'true' && ! is_numeric($value)
-                                ? "'{$attribute}' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute({$value})"
+                                ? "'{$attribute}' => \CreativeBlade\View\Compilers\BladeCompiler::sanitizeComponentAttribute({$value})"
                                 : "'{$attribute}' => {$value}";
                 })
                 ->implode(',');

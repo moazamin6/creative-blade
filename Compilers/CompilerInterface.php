@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Compilers;
+namespace CreativeBlade\View\Compilers;
 
 interface CompilerInterface
 {

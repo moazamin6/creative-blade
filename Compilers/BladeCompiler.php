@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Compilers;
+namespace CreativeBlade\View\Compilers;
 
 use Illuminate\Collections\Arr;
 use Illuminate\Support\Str;

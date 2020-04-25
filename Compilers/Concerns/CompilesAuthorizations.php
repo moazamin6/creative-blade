@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Compilers\Concerns;
+namespace CreativeBlade\View\Compilers\Concerns;
 
 trait CompilesAuthorizations
 {

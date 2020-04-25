@@ -1,10 +1,10 @@
 <?php
 
-namespace Illuminate\View\Concerns;
+namespace CreativeBlade\View\Concerns;
 
 use Illuminate\Collections\Arr;
 use Illuminate\Support\HtmlString;
-use Illuminate\View\View;
+use CreativeBlade\View\View;
 use InvalidArgumentException;
 
 trait ManagesComponents
@@ -40,7 +40,7 @@ trait ManagesComponents
     /**
      * Start a component rendering process.
      *
-     * @param  \Illuminate\View\View|string  $view
+     * @param  \CreativeBlade\View\View|string  $view
      * @param  array  $data
      * @return void
      */

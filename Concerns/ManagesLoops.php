@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Concerns;
+namespace CreativeBlade\View\Concerns;
 
 use Countable;
 use Illuminate\Collections\Arr;
