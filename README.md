@@ -15,7 +15,7 @@ composer require moazamin6/creative-blade
 Usage
 -----
 
-Create a Blade instance by passing it the folder(s) where your view files are located, and a cache folder. Render a template by calling the `make` method. More information about the Blade templating engine can be found on http://laravel.com/docs/5.4/blade.
+Create a Blade instance by passing it the folder(s) where your view files are located, and a cache folder. Render a template by calling the `make` method. More information about the Blade templating engine can be found on https://laravel.com/docs/7.x/blade.
 
 ```php
 require 'vendor/autoload.php';
