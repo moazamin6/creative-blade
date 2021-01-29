@@ -1,5 +1,5 @@
 {
-    "name": "CreativeBlade",
+    "name": "moazamin6/creative-blade",
     "description": "The Creative Blade package build on illuminate/view.",
     "license": "MIT",
     "homepage": "https://laravel.com",
@@ -27,11 +27,6 @@
     "autoload": {
         "psr-4": {
             "Illuminate\\View\\": ""
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "8.x-dev"
         }
     },
     "config": {
