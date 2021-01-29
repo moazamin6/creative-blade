@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeBlade\View\Engines;
+namespace Illuminate\View\Engines;
 
 abstract class Engine
 {

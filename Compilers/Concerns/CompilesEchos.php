@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeBlade\View\Compilers\Concerns;
+namespace Illuminate\View\Compilers\Concerns;
 
 trait CompilesEchos
 {
@@ -10,7 +10,7 @@ trait CompilesEchos
      * @param  string  $value
      * @return string
      */
-    protected function compileEchos($value)
+    public function compileEchos($value)
     {
         foreach ($this->getEchoMethods() as $method) {
             $value = $this->$method($value);

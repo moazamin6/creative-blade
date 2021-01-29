@@ -1,15 +1,15 @@
 <?php
 
-namespace CreativeBlade\View;
+namespace Illuminate\View;
 
-use Illuminate\Collections\Arr;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\Factory as FactoryContract;
-use Illuminate\Macroable\Macroable;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
-use CreativeBlade\View\Engines\EngineResolver;
+use Illuminate\Support\Traits\Macroable;
+use Illuminate\View\Engines\EngineResolver;
 use InvalidArgumentException;
 
 class Factory implements FactoryContract
@@ -25,14 +25,14 @@ class Factory implements FactoryContract
     /**
      * The engine implementation.
      *
-     * @var \CreativeBlade\View\Engines\EngineResolver
+     * @var \Illuminate\View\Engines\EngineResolver
      */
     protected $engines;
 
     /**
      * The view finder implementation.
      *
-     * @var \CreativeBlade\View\ViewFinderInterface
+     * @var \Illuminate\View\ViewFinderInterface
      */
     protected $finder;
 
@@ -84,10 +84,17 @@ class Factory implements FactoryContract
     protected $renderCount = 0;
 
     /**
+     * The "once" block IDs that have been rendered.
+     *
+     * @var array
+     */
+    protected $renderedOnce = [];
+
+    /**
      * Create a new view factory instance.
      *
-     * @param  \CreativeBlade\View\Engines\EngineResolver  $engines
-     * @param  \CreativeBlade\View\ViewFinderInterface  $finder
+     * @param  \Illuminate\View\Engines\EngineResolver  $engines
+     * @param  \Illuminate\View\ViewFinderInterface  $finder
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
@@ -353,6 +360,28 @@ class Factory implements FactoryContract
     }
 
     /**
+     * Determine if the given once token has been rendered.
+     *
+     * @param  string  $id
+     * @return bool
+     */
+    public function hasRenderedOnce(string $id)
+    {
+        return isset($this->renderedOnce[$id]);
+    }
+
+    /**
+     * Mark the given once token as having been rendered.
+     *
+     * @param  string  $id
+     * @return void
+     */
+    public function markAsRenderedOnce(string $id)
+    {
+        $this->renderedOnce[$id] = true;
+    }
+
+    /**
      * Add a location to the array of view locations.
      *
      * @param  string  $location
@@ -434,6 +463,7 @@ class Factory implements FactoryContract
     public function flushState()
     {
         $this->renderCount = 0;
+        $this->renderedOnce = [];
 
         $this->flushSections();
         $this->flushStacks();
@@ -464,7 +494,7 @@ class Factory implements FactoryContract
     /**
      * Get the engine resolver instance.
      *
-     * @return \CreativeBlade\View\Engines\EngineResolver
+     * @return \Illuminate\View\Engines\EngineResolver
      */
     public function getEngineResolver()
     {
@@ -474,7 +504,7 @@ class Factory implements FactoryContract
     /**
      * Get the view finder instance.
      *
-     * @return \CreativeBlade\View\ViewFinderInterface
+     * @return \Illuminate\View\ViewFinderInterface
      */
     public function getFinder()
     {
@@ -484,7 +514,7 @@ class Factory implements FactoryContract
     /**
      * Set the view finder instance.
      *
-     * @param  \CreativeBlade\View\ViewFinderInterface  $finder
+     * @param  \Illuminate\View\ViewFinderInterface  $finder
      * @return void
      */
     public function setFinder(ViewFinderInterface $finder)

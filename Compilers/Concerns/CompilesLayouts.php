@@ -1,8 +1,8 @@
 <?php
 
-namespace CreativeBlade\View\Compilers\Concerns;
+namespace Illuminate\View\Compilers\Concerns;
 
-use CreativeBlade\View\Factory as ViewFactory;
+use Illuminate\View\Factory as ViewFactory;
 
 trait CompilesLayouts
 {
@@ -24,6 +24,23 @@ trait CompilesLayouts
         $expression = $this->stripParentheses($expression);
 
         $echo = "<?php echo \$__env->make({$expression}, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
+
+        $this->footer[] = $echo;
+
+        return '';
+    }
+
+    /**
+     * Compile the extends-first statements into valid PHP.
+     *
+     * @param  string  $expression
+     * @return string
+     */
+    protected function compileExtendsFirst($expression)
+    {
+        $expression = $this->stripParentheses($expression);
+
+        $echo = "<?php echo \$__env->first({$expression}, \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
 
         $this->footer[] = $echo;
 

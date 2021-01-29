@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeBlade\View\Concerns;
+namespace Illuminate\View\Concerns;
 
 trait ManagesTranslations
 {

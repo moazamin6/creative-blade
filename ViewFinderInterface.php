@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeBlade\View;
+namespace Illuminate\View;
 
 interface ViewFinderInterface
 {

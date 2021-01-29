@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeBlade\View;
+namespace Illuminate\View;
 
 use ArrayAccess;
 use BadMethodCallException;
@@ -10,9 +10,9 @@ use Illuminate\Contracts\Support\MessageProvider;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Contracts\View\Engine;
 use Illuminate\Contracts\View\View as ViewContract;
-use Illuminate\Macroable\Macroable;
 use Illuminate\Support\MessageBag;
 use Illuminate\Support\Str;
+use Illuminate\Support\Traits\Macroable;
 use Illuminate\Support\ViewErrorBag;
 use Throwable;
 
@@ -25,7 +25,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * The view factory instance.
      *
-     * @var \CreativeBlade\View\Factory
+     * @var \Illuminate\View\Factory
      */
     protected $factory;
 
@@ -60,7 +60,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * Create a new view instance.
      *
-     * @param  \CreativeBlade\View\Factory  $factory
+     * @param  \Illuminate\View\Factory  $factory
      * @param  \Illuminate\Contracts\View\Engine  $engine
      * @param  string  $view
      * @param  string  $path
@@ -283,7 +283,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * Get the view factory instance.
      *
-     * @return \CreativeBlade\View\Factory
+     * @return \Illuminate\View\Factory
      */
     public function getFactory()
     {
@@ -395,7 +395,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
      *
      * @param  string  $method
      * @param  array  $parameters
-     * @return \CreativeBlade\View\View
+     * @return \Illuminate\View\View
      *
      * @throws \BadMethodCallException
      */

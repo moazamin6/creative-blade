@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeBlade\View;
+namespace Illuminate\View;
 
 class AnonymousComponent extends Component
 {
@@ -19,7 +19,7 @@ class AnonymousComponent extends Component
     protected $data = [];
 
     /**
-     * Create a new class-less component instance.
+     * Create a new anonymous component instance.
      *
      * @param  string  $view
      * @param  array  $data

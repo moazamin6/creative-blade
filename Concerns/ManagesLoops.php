@@ -1,9 +1,9 @@
 <?php
 
-namespace CreativeBlade\View\Concerns;
+namespace Illuminate\View\Concerns;
 
 use Countable;
-use Illuminate\Collections\Arr;
+use Illuminate\Support\Arr;
 
 trait ManagesLoops
 {

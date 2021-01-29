@@ -1,15 +1,20 @@
 {
-    "name": "moazamin6/creative-blade",
-    "description": "Full compatible to every php application standalone laravel's blade modify on illuminate/view v7.8.1",
+    "name": "illuminate/view",
+    "description": "The Illuminate View package.",
     "license": "MIT",
+    "homepage": "https://laravel.com",
+    "support": {
+        "issues": "https://github.com/laravel/framework/issues",
+        "source": "https://github.com/laravel/framework"
+    },
     "authors": [
         {
-            "name": "Moaz Amin",
-            "email": "moazamin6@gmail.com"
+            "name": "Taylor Otwell",
+            "email": "taylor@laravel.com"
         }
     ],
     "require": {
-        "php": "^7.3",
+        "php": "^7.3|^8.0",
         "ext-json": "*",
         "illuminate/collections": "^8.0",
         "illuminate/container": "^8.0",
@@ -21,15 +26,15 @@
     },
     "autoload": {
         "psr-4": {
-            "CreativeBlade\\View\\": ""
-        },
-        "files": [
-            "helper/blade.php",
-            "CreativeBlade.php"
-        ]
+            "Illuminate\\View\\": ""
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "8.x-dev"
+        }
     },
     "config": {
         "sort-packages": true
-    },
-    "minimum-stability": "dev"
+    }
 }

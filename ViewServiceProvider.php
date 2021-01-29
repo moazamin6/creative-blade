@@ -1,13 +1,13 @@
 <?php
 
-namespace CreativeBlade\View;
+namespace Illuminate\View;
 
 use Illuminate\Support\ServiceProvider;
-use CreativeBlade\View\Compilers\BladeCompiler;
-use CreativeBlade\View\Engines\CompilerEngine;
-use CreativeBlade\View\Engines\EngineResolver;
-use CreativeBlade\View\Engines\FileEngine;
-use CreativeBlade\View\Engines\PhpEngine;
+use Illuminate\View\Compilers\BladeCompiler;
+use Illuminate\View\Engines\CompilerEngine;
+use Illuminate\View\Engines\EngineResolver;
+use Illuminate\View\Engines\FileEngine;
+use Illuminate\View\Engines\PhpEngine;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -19,11 +19,8 @@ class ViewServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerFactory();
-
         $this->registerViewFinder();
-
         $this->registerBladeCompiler();
-
         $this->registerEngineResolver();
     }
 
@@ -58,10 +55,10 @@ class ViewServiceProvider extends ServiceProvider
     /**
      * Create a new Factory Instance.
      *
-     * @param  \CreativeBlade\View\Engines\EngineResolver  $resolver
-     * @param  \CreativeBlade\View\ViewFinderInterface  $finder
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\ViewFinderInterface  $finder
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
-     * @return \CreativeBlade\View\Factory
+     * @return \Illuminate\View\Factory
      */
     protected function createFactory($resolver, $finder, $events)
     {
@@ -88,7 +85,9 @@ class ViewServiceProvider extends ServiceProvider
     public function registerBladeCompiler()
     {
         $this->app->singleton('blade.compiler', function ($app) {
-            return new BladeCompiler($app['files'], $app['config']['view.compiled']);
+            return tap(new BladeCompiler($app['files'], $app['config']['view.compiled']), function ($blade) {
+                $blade->component('dynamic-component', DynamicComponent::class);
+            });
         });
     }
 
@@ -116,39 +115,39 @@ class ViewServiceProvider extends ServiceProvider
     /**
      * Register the file engine implementation.
      *
-     * @param  \CreativeBlade\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
      * @return void
      */
     public function registerFileEngine($resolver)
     {
         $resolver->register('file', function () {
-            return new FileEngine;
+            return new FileEngine($this->app['files']);
         });
     }
 
     /**
      * Register the PHP engine implementation.
      *
-     * @param  \CreativeBlade\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
      * @return void
      */
     public function registerPhpEngine($resolver)
     {
         $resolver->register('php', function () {
-            return new PhpEngine;
+            return new PhpEngine($this->app['files']);
         });
     }
 
     /**
      * Register the Blade engine implementation.
      *
-     * @param  \CreativeBlade\View\Engines\EngineResolver  $resolver
+     * @param  \Illuminate\View\Engines\EngineResolver  $resolver
      * @return void
      */
     public function registerBladeEngine($resolver)
     {
         $resolver->register('blade', function () {
-            return new CompilerEngine($this->app['blade.compiler']);
+            return new CompilerEngine($this->app['blade.compiler'], $this->app['files']);
         });
     }
 }

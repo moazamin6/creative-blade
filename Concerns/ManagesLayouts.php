@@ -1,6 +1,6 @@
 <?php
 
-namespace CreativeBlade\View\Concerns;
+namespace Illuminate\View\Concerns;
 
 use Illuminate\Contracts\View\View;
 use InvalidArgumentException;
@@ -183,6 +183,17 @@ trait ManagesLayouts
     public function hasSection($name)
     {
         return array_key_exists($name, $this->sections);
+    }
+
+    /**
+     * Check if section does not exist.
+     *
+     * @param  string  $name
+     * @return bool
+     */
+    public function sectionMissing($name)
+    {
+        return ! $this->hasSection($name);
     }
 
     /**
