@@ -1,16 +1,16 @@
 {
-    "name": "illuminate/view",
-    "description": "The Illuminate View package.",
+    "name": "CreativeBlade",
+    "description": "The Creative Blade package build on illuminate/view.",
     "license": "MIT",
     "homepage": "https://laravel.com",
     "support": {
-        "issues": "https://github.com/laravel/framework/issues",
-        "source": "https://github.com/laravel/framework"
+        "issues": "https://github.com/moazamin6/creative-blade/issues",
+        "source": "https://github.com/moazamin6/creative-blade"
     },
     "authors": [
         {
-            "name": "Taylor Otwell",
-            "email": "taylor@laravel.com"
+            "name": "Moaz Amin",
+            "email": "moazamin6@gmail.com"
         }
     ],
     "require": {
