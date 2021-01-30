@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Concerns;
+namespace CreativeBlade\Concerns;
 
 use Illuminate\Contracts\View\View;
 use InvalidArgumentException;

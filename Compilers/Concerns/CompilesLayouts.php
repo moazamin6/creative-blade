@@ -1,8 +1,8 @@
 <?php
 
-namespace Illuminate\View\Compilers\Concerns;
+namespace CreativeBlade\Compilers\Concerns;
 
-use Illuminate\View\Factory as ViewFactory;
+use CreativeBlade\Factory as ViewFactory;
 
 trait CompilesLayouts
 {

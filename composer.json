@@ -1,8 +1,8 @@
 {
     "name": "moazamin6/creative-blade",
-    "description": "The Creative Blade package build on illuminate/view.",
+    "description": "Standalone laravel blade for all existing and new php projects",
     "license": "MIT",
-    "homepage": "https://laravel.com",
+    "homepage": "https://github.com/moazamin6",
     "support": {
         "issues": "https://github.com/moazamin6/creative-blade/issues",
         "source": "https://github.com/moazamin6/creative-blade"
@@ -26,8 +26,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Illuminate\\View\\": ""
-        }
+            "CreativeBlade\\": ""
+        },
+        "files": [
+            "CreativeBlade.php"
+        ]
     },
     "config": {
         "sort-packages": true

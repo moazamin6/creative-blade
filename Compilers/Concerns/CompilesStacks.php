@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Compilers\Concerns;
+namespace CreativeBlade\Compilers\Concerns;
 
 trait CompilesStacks
 {

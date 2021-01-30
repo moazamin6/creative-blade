@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View;
+namespace CreativeBlade;
 
 use Closure;
 use Illuminate\Container\Container;
@@ -44,7 +44,7 @@ abstract class Component
     /**
      * The component attributes.
      *
-     * @var \Illuminate\View\ComponentAttributeBag
+     * @var \CreativeBlade\ComponentAttributeBag
      */
     public $attributes;
 
@@ -206,7 +206,7 @@ abstract class Component
      * Create an invokable, toStringable variable for the given component method.
      *
      * @param  string  $method
-     * @return \Illuminate\View\InvokableComponentVariable
+     * @return \CreativeBlade\InvokableComponentVariable
      */
     protected function createInvokableVariable(string $method)
     {

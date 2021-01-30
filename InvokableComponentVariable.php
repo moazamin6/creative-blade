@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View;
+namespace CreativeBlade;
 
 use ArrayIterator;
 use Closure;

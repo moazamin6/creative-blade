@@ -1,9 +1,9 @@
 <?php
 
-namespace Illuminate\View\Compilers\Concerns;
+namespace CreativeBlade\Compilers\Concerns;
 
 use Illuminate\Support\Str;
-use Illuminate\View\ComponentAttributeBag;
+use CreativeBlade\ComponentAttributeBag;
 
 trait CompilesComponents
 {

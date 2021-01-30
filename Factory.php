@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View;
+namespace CreativeBlade;
 
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Contracts\Events\Dispatcher;
@@ -9,7 +9,7 @@ use Illuminate\Contracts\View\Factory as FactoryContract;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
-use Illuminate\View\Engines\EngineResolver;
+use CreativeBlade\Engines\EngineResolver;
 use InvalidArgumentException;
 
 class Factory implements FactoryContract
@@ -25,14 +25,14 @@ class Factory implements FactoryContract
     /**
      * The engine implementation.
      *
-     * @var \Illuminate\View\Engines\EngineResolver
+     * @var \CreativeBlade\Engines\EngineResolver
      */
     protected $engines;
 
     /**
      * The view finder implementation.
      *
-     * @var \Illuminate\View\ViewFinderInterface
+     * @var \CreativeBlade\ViewFinderInterface
      */
     protected $finder;
 
@@ -93,8 +93,8 @@ class Factory implements FactoryContract
     /**
      * Create a new view factory instance.
      *
-     * @param  \Illuminate\View\Engines\EngineResolver  $engines
-     * @param  \Illuminate\View\ViewFinderInterface  $finder
+     * @param  \CreativeBlade\Engines\EngineResolver  $engines
+     * @param  \CreativeBlade\ViewFinderInterface  $finder
      * @param  \Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
@@ -494,7 +494,7 @@ class Factory implements FactoryContract
     /**
      * Get the engine resolver instance.
      *
-     * @return \Illuminate\View\Engines\EngineResolver
+     * @return \CreativeBlade\Engines\EngineResolver
      */
     public function getEngineResolver()
     {
@@ -504,7 +504,7 @@ class Factory implements FactoryContract
     /**
      * Get the view finder instance.
      *
-     * @return \Illuminate\View\ViewFinderInterface
+     * @return \CreativeBlade\ViewFinderInterface
      */
     public function getFinder()
     {
@@ -514,7 +514,7 @@ class Factory implements FactoryContract
     /**
      * Set the view finder instance.
      *
-     * @param  \Illuminate\View\ViewFinderInterface  $finder
+     * @param  \CreativeBlade\ViewFinderInterface  $finder
      * @return void
      */
     public function setFinder(ViewFinderInterface $finder)

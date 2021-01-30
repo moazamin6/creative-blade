@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View;
+namespace CreativeBlade;
 
 use ArrayAccess;
 use ArrayIterator;
@@ -217,7 +217,7 @@ class ComponentAttributeBag implements ArrayAccess, Htmlable, IteratorAggregate
      * Create a new appendable attribute value.
      *
      * @param  mixed  $value
-     * @return \Illuminate\View\AppendableAttributeValue
+     * @return \CreativeBlade\AppendableAttributeValue
      */
     public function prepends($value)
     {

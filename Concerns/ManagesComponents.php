@@ -1,12 +1,12 @@
 <?php
 
-namespace Illuminate\View\Concerns;
+namespace CreativeBlade\Concerns;
 
 use Closure;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Support\Arr;
 use Illuminate\Support\HtmlString;
-use Illuminate\View\View;
+use CreativeBlade\View;
 use InvalidArgumentException;
 
 trait ManagesComponents

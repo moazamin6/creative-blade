@@ -1,15 +1,15 @@
 <?php
 
-namespace Illuminate\View\Compilers;
+namespace CreativeBlade\Compilers;
 
 use Illuminate\Container\Container;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
-use Illuminate\View\AnonymousComponent;
-use Illuminate\View\DynamicComponent;
-use Illuminate\View\ViewFinderInterface;
+use CreativeBlade\AnonymousComponent;
+use CreativeBlade\DynamicComponent;
+use CreativeBlade\ViewFinderInterface;
 use InvalidArgumentException;
 use ReflectionClass;
 
@@ -22,7 +22,7 @@ class ComponentTagCompiler
     /**
      * The Blade compiler instance.
      *
-     * @var \Illuminate\View\Compilers\BladeCompiler
+     * @var \CreativeBlade\Compilers\BladeCompiler
      */
     protected $blade;
 
@@ -51,7 +51,7 @@ class ComponentTagCompiler
      * Create new component tag compiler.
      *
      * @param  array  $aliases
-     * @param  \Illuminate\View\Compilers\BladeCompiler|null
+     * @param  \CreativeBlade\Compilers\BladeCompiler|null
      * @return void
      */
     public function __construct(array $aliases = [], array $namespaces = [], ?BladeCompiler $blade = null)
@@ -548,7 +548,7 @@ class ComponentTagCompiler
         return collect($attributes)
                 ->map(function (string $value, string $attribute) use ($escapeBound) {
                     return $escapeBound && isset($this->boundAttributes[$attribute]) && $value !== 'true' && ! is_numeric($value)
-                                ? "'{$attribute}' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute({$value})"
+                                ? "'{$attribute}' => \CreativeBlade\Compilers\BladeCompiler::sanitizeComponentAttribute({$value})"
                                 : "'{$attribute}' => {$value}";
                 })
                 ->implode(',');

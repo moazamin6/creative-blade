@@ -1,4 +1,4 @@
+/test/cache/*
 /vendor
 /.idea
-/demo/cache
 composer.lock

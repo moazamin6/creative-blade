@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Engines;
+namespace CreativeBlade\Engines;
 
 use Illuminate\Contracts\View\Engine;
 use Illuminate\Filesystem\Filesystem;

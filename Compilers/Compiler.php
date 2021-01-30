@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\View\Compilers;
+namespace CreativeBlade\Compilers;
 
 use Illuminate\Filesystem\Filesystem;
 use InvalidArgumentException;
