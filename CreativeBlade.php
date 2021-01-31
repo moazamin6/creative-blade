@@ -31,18 +31,22 @@ class CreativeBlade
 	 * @var \Illuminate\Container\Container
 	 */
 	protected $app;
+	protected $metaData;
 	
 	/**
 	 * Register the service provider.
 	 *
-	 * @return void
+	 * @param $viewPaths
+	 * @param $cachePath
+	 * @param array $metaData
 	 */
 	
-	public function __construct($viewPaths, $cachePath)
+	public function __construct($viewPaths, $cachePath, $metaData = [])
 	{
 		$this->app = new Container();
 		$this->viewPaths = (array)$viewPaths;
 		$this->cachePath = $cachePath;
+		$this->metaData = $metaData;
 		$this->register();
 	}
 	
@@ -78,6 +82,7 @@ class CreativeBlade
 			return new Dispatcher;
 		});
 	}
+	
 	/**
 	 * Register the view environment.
 	 *
@@ -222,7 +227,7 @@ class CreativeBlade
 		
 		$resolver->register('blade', function()
 		{
-			return new CompilerEngine($this->app['blade.compiler'], $this->app['files']);
+			return new CompilerEngine($this->app['blade.compiler'], $this->metaData, $this->app['files']);
 		});
 	}
 }

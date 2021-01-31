@@ -1,38 +1,46 @@
 {
-    "name": "moazamin6/creative-blade",
-    "description": "Standalone laravel blade for all existing and new php projects",
-    "license": "MIT",
-    "homepage": "https://github.com/moazamin6",
-    "support": {
-        "issues": "https://github.com/moazamin6/creative-blade/issues",
-        "source": "https://github.com/moazamin6/creative-blade"
-    },
-    "authors": [
-        {
-            "name": "Moaz Amin",
-            "email": "moazamin6@gmail.com"
-        }
-    ],
-    "require": {
-        "php": "^7.3|^8.0",
-        "ext-json": "*",
-        "illuminate/collections": "^8.0",
-        "illuminate/container": "^8.0",
-        "illuminate/contracts": "^8.0",
-        "illuminate/events": "^8.0",
-        "illuminate/filesystem": "^8.0",
-        "illuminate/macroable": "^8.0",
-        "illuminate/support": "^8.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "CreativeBlade\\": ""
-        },
-        "files": [
-            "CreativeBlade.php"
-        ]
-    },
-    "config": {
-        "sort-packages": true
+  "name": "moazamin6/creative-blade",
+  "description": "Standalone laravel blade for all existing and new php projects",
+  "keywords": [
+    "laravel",
+    "blade",
+    "template",
+    "view",
+    "render"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "homepage": "https://github.com/moazamin6",
+  "support": {
+    "issues": "https://github.com/moazamin6/creative-blade/issues",
+    "source": "https://github.com/moazamin6/creative-blade"
+  },
+  "authors": [
+    {
+      "name": "Moaz Amin",
+      "email": "moazamin6@gmail.com"
     }
+  ],
+  "require": {
+    "php": "^7.3|^8.0",
+    "ext-json": "*",
+    "illuminate/collections": "^8.0",
+    "illuminate/container": "^8.0",
+    "illuminate/contracts": "^8.0",
+    "illuminate/events": "^8.0",
+    "illuminate/filesystem": "^8.0",
+    "illuminate/macroable": "^8.0",
+    "illuminate/support": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "CreativeBlade\\": ""
+    },
+    "files": [
+      "CreativeBlade.php"
+    ]
+  },
+  "config": {
+    "sort-packages": true
+  }
 }

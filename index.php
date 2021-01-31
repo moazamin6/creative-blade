@@ -2,6 +2,7 @@
 
 namespace CreativeBlade;
 require 'vendor/autoload.php';
+
 class Blade
 {
 	public $views = __DIR__ . '\test\views';
